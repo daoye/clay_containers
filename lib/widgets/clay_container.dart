@@ -18,6 +18,7 @@ class ClayContainer extends StatefulWidget {
     this.curveType,
     this.depth,
     this.emboss = false,
+    this.shape = BoxShape.rectangle,
   });
 
   final double? height;
@@ -32,6 +33,7 @@ class ClayContainer extends StatefulWidget {
   final CurveType? curveType;
   final int? depth;
   final bool emboss;
+  final BoxShape shape;
 
   @override
   State<ClayContainer> createState() => _ClayContainerState();
@@ -47,6 +49,7 @@ class _ClayContainerState extends State<ClayContainer> {
   late BorderRadius? customBorderRadius;
   late int depth;
   late double spread;
+  late BoxShape shape;
 
   @override
   void didChangeDependencies() {
@@ -62,6 +65,7 @@ class _ClayContainerState extends State<ClayContainer> {
         widget.customBorderRadius ?? clayTheme?.customBorderRadius;
     depth = widget.depth ?? clayTheme?.depth ?? 20;
     spread = widget.spread ?? clayTheme?.spread ?? 6;
+    shape = widget.shape;
   }
 
   @override
@@ -78,6 +82,7 @@ class _ClayContainerState extends State<ClayContainer> {
         widget.customBorderRadius ?? clayTheme?.customBorderRadius;
     depth = widget.depth ?? clayTheme?.depth ?? 20;
     spread = widget.spread ?? clayTheme?.spread ?? 6;
+    shape = widget.shape;
   }
 
   @override
@@ -144,6 +149,7 @@ class _ClayContainerState extends State<ClayContainer> {
       decoration: BoxDecoration(
         borderRadius: borderRadiusValue,
         color: colorValue,
+        shape: shape,
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
