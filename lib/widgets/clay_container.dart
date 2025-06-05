@@ -147,7 +147,7 @@ class _ClayContainerState extends State<ClayContainer> {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: borderRadiusValue,
+        borderRadius: shape == BoxShape.circle ? null : borderRadiusValue,
         color: colorValue,
         shape: shape,
         gradient: LinearGradient(
